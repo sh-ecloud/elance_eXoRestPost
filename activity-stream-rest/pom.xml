@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.yunyi</groupId>
+	<artifactId>activity-stream-rest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>activity-stream-rest</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<exo.plf.home>/Apps/platform-4.0.6</exo.plf.home>
+		<exo.version>4.0.6</exo.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.exoplatform.platform</groupId>
+				<artifactId>platform</artifactId>
+				<version>${exo.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.exoplatform.social</groupId>
+			<artifactId>social-component-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.social</groupId>
+			<artifactId>social-component-webui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecms</groupId>
+			<artifactId>ecms-core-services</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecms</groupId>
+			<artifactId>ecms-core-webui</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecms</groupId>
+			<artifactId>ecms-core-connector</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>eXo-pub-repo</id>
+			<name>eXoPlatform public repo</name>
+			<url>http://repository.exoplatform.org/public</url>
+		</repository>
+		<repository>
+			<id>mvn-pub-repo</id>
+			<name>mvn public repo</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-testCompile</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<outputDirectory>${exo.plf.home}/lib</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
