@@ -2,6 +2,7 @@ package com.yunyi.activityqueue.reportor;
 
 import com.yunyi.activityqueue.bean.Activity;
 import com.yunyi.activityqueue.configure.Configure;
+import com.yunyi.activityqueue.tool.JsonConvertor;
 import sun.misc.BASE64Encoder;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -60,7 +61,7 @@ public class RestfulReportor {
 
             httpConn.setDoOutput(true);
             out = httpConn.getOutputStream();
-            String activityJsonStr = new JSONObject(activity).toString();
+            String activityJsonStr = JsonConvertor.toString(activity);
 
             out.write(activityJsonStr.getBytes("UTF-8"));
             out.flush();
